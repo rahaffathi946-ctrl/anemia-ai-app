@@ -21,11 +21,8 @@ DATA_PATH    = os.path.join(os.path.dirname(__file__), 'cbc_dataset_labeled__2_.
 
 # ── Load or train model ───────────────────────────────────────────────
 def load_or_train():
-    if os.path.exists(MODEL_PATH) and os.path.exists(IMPUTER_PATH):
-        model   = joblib.load(MODEL_PATH)
-        imputer = joblib.load(IMPUTER_PATH)
-        print("✅ Model loaded from disk")
-        return model, imputer
+    if False:  # always retrain from CSV to avoid pickle version issues
+        pass
 
     print("⏳ Training model...")
     df = pd.read_csv(DATA_PATH, sep=';')
